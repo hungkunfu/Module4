@@ -1,0 +1,30 @@
+﻿@*@{
+    ViewBag.Titel = "Delete Role";
+}
+@model DeleteRole
+<div class="col-md-4" style="margin: 0 auto">
+    <div class="users-form">
+        <h3 class="text-center">DELETE ROLE</h3>
+        <form enctype="multipart/form-data" method="post" asp-controller="Role" asp-action="Delete">
+            <input hidden asp-for="RoleId" />
+            <div class="form-group">
+                <label asp-for="RoleName"></label>
+
+                <input asp-for="RoleName" class="form-control" placeholder="@Model">
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+
+
+            </div>
+
+
+
+            <a class="btn btn-warning w-100" a asp-controller="Role" asp-action="Delete">DELETE</a>
+            <hr />
+
+            <a class="btn btn-warning w-100" a asp-controller="Role" asp-action="Index">CANCEL</a>
+
+      
+            
+        </form>
+    </div>
+</div>*@

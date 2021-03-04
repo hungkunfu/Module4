@@ -1,0 +1,61 @@
+﻿@model ViewEmployee
+@{
+    ViewBag.Title = "Employee Pofile";
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <p><a asp-controller="Employee" asp-action="Index">Employee</a> &gt; @Model.Fullname</p>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <img id="avatar" class="rounded-circle" src="@Url.Content(Model.AvatarPath)" style="width:100%" />
+            </div>
+            <div class="col-9">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="Firstname"></label>
+                            <h6>@Model.Firstname</h6>
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="Lastname"></label>
+                            <h6>@Model.Lastname</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="Code"></label>
+                            <h6>@Model.Code</h6>
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="Age"></label>
+                            <h6>@Model.Age</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone"></label>
+                    <h6>@Model.Phone</h6>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <h6>@Model.Email</h6>
+                </div>
+
+                <a asp-controller="Employee" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">
+                    <i class="fa fa-trash" style="font-size:32px" aria-hidden="true"></i>
+                </a>
+
+                <a asp-controller="Employee" asp-action="Profile"asp-route-id="@Model.Id" class="btn btn-danger">
+                    <i class="fa fa-times" style="font-size:32px" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Edit Role";
+}
+@model EditRole
+<div class="col-md-4" style="margin: 0 auto">
+    <div class="users-form">
+        <h3 class="text-center">EDIT ROLE</h3>
+        <form enctype="multipart/form-data" method="post" asp-controller="Role" asp-action="Edit">
+            <input hidden asp-for="RoleId" />
+            <div class="form-group">
+                <label asp-for="RoleName"></label>
+
+                <input asp-for="RoleName" class="form-control" placeholder="Tên đăng nhập">
+                <span asp-validation-for="RoleName" class="text-danger"></span>
+
+
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">UPDATE</button>
+            <hr />
+            <button type="button" class="btn btn-danger w-100" data-toggle="modal" data-target="#deleteModel" >
+                DELETE
+            </button>
+            <hr />
+            <a class="btn btn-warning w-100" a asp-controller="Role" asp-action="Index">CANCEL</a>
+            @*<a asp-controller="Role" asp-action="Index" class="btn btn-warning">Back</a>*@
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </form>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="deleteModel">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+           
+                <div class="modal-header">
+                    <h4 class="modal-title">Confirm Delete Role</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+               
+                <div class="modal-body">
+                  Bạn Thực Sự Muốn Xóa Nó !....
+                </div>
+
+               
+                <div class="modal-footer">
+                    
+                    <a  class="btn btn-danger w-25"  asp-controller="Role" asp-action="Delete" asp-route-id="@Model.RoleId">YES </a>
+                    <button type="button" class="btn btn-primary w-25" data-dismiss="modal">NO</button>
+                </div>
+
+           
+        </div>
+    </div>
+</div>

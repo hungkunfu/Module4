@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Edit User";
+    var roles = ViewBag.Roles as IQueryable<IdentityRole>;
+}
+
+@model EditUserViewModel
+
+<div class="col-md-4" style="margin: 0 auto">
+    <div class="users-form">
+        <h3 class="text-center">EDIT USER</h3>
+        <form enctype="multipart/form-data" method="post" asp-controller="User" asp-action="Edit">
+            <input hidden asp-for="@Model.UserId" />
+            <div class="form-group">
+                <label asp-for="Email"></label>
+
+                <input asp-for="Email" class="form-control" placeholder="Tên đăng nhập">
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <!-- <label for="user_login">Tên login</label> -->
+                <!--USER-->
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="City"></label>
+
+                <input asp-for="City" class="form-control">
+
+                <!-- <label for="user_login">Tên login</label> -->
+                <!--USER-->
+            </div>
+            <div class="form-group">
+                <label asp-for="Address"></label>
+
+                <input asp-for="Address" class="form-control">
+
+                <!-- <label for="user_login">Tên login</label> -->
+                <!--USER-->
+            </div>
+            <div class="form-group">
+
+                <label asp-for="RoleId"></label>
+
+                <select asp-for="RoleId" class="custom-select">
+                    <option value="">Select a role</option>
+                    @if (roles != null && roles.Any())
+                    {
+                        @foreach (var role in roles)
+                        {
+                            <option value="@role.Id" selected="@(role.Id == Model.RoleId)">@role.Name</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="RoleId" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">UPDATE</button>
+            <hr />
+            <button asp-controller="User" asp-action="Index" class="btn btn-danger w-100">CANCEL</button>
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+        </form>
+    </div>
+</div>

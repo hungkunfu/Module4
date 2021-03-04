@@ -1,0 +1,14 @@
+﻿*, *::after, *::before{
+    box-sizing: border-box;
+    margin:0px;
+    padding: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table, tr,td{
+    border-collapse: collapse;
+    border:1px solid;
+}
+tr,td{
+    padding: 10px;
+}

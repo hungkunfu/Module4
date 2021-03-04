@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Create Employee";
+}
+
+@model CreateEmployee
+<div class="row">
+    <div class="col-12">
+        <form enctype="multipart/form-data" method="post" asp-controller="Employee" asp-action="Create">
+            @*<div asp-validation-summary="All" class="text-danger"></div>*@
+            <div class="row">
+                <div class="col-3">
+                    <img id="avatar" class="rounded-circle" src="~/images/noavt.png" style="width:100%" />
+                    <div class="custom-file">
+                        <input type="file" accept="image/*" name="Avatar" class="custom-file-input" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <div class="col-9">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <label asp-for="Firstname"></label>
+                                <input class="form-control" asp-for="Firstname">
+                                <span asp-validation-for="Firstname" class="text-danger"></span>
+                            </div>
+                            <div class="col-6">
+                                <label asp-for="Lastname"></label>
+                                <input class="form-control" asp-for="Lastname">
+                                <span asp-validation-for="Lastname" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <label asp-for="Code"></label>
+                                <input class="form-control" asp-for="Code">
+                                <span asp-validation-for="Code" class="text-danger"></span>
+                            </div>
+                            <div class="col-6">
+                                <label asp-for="Age"></label>
+                                <input class="form-control" asp-for="Age">
+                                <span asp-validation-for="Age" class="text-danger"></span>
+                            </div>
+                            <div class="col-6">
+                                <label asp-for="Phone"></label>
+                                <input class="form-control" asp-for="Phone">
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input class="form-control" asp-for="Email">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-floppy-o" style="font-size:32px" aria-hidden="true"></i>
+                    </button>
+                    <a asp-controller="Employee" asp-action="Index" class="btn btn-danger">
+                        <i class="fa fa-times" style="font-size:32px" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+            
+            
+        </form>
+    </div>
+
+</div>
+@section Script{
+    <script>
+        $(document).ready(function () {
+            $(".custom-file-input").on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+                $('#avatar').attr('src', window.URL.createObjectURL($(this)[0].files[0]))
+            });
+        });
+    </script>
+} 

@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+@model LoginViewModel
+<div class="col-md-4" style="margin: 0 auto">
+    <div class="users-form">
+        <h3 class="text-center">Đăng nhập</h3>
+        <form enctype="multipart/form-data" method="post" asp-controller="Account" asp-action="Login">
+            <input hidden asp-for="ReturnUrl" value="@ViewBag.ReturnUrl"/>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+
+                <input asp-for="Email" class="form-control" placeholder="Tên đăng nhập">
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <!-- <label for="user_login">Tên login</label> -->
+                <!--USER-->
+            </div>
+
+            <div class="form-group">
+                <!-- <label for="user_pass">Mật khẩu</label> -->
+                <label asp-for="Password"></label>
+
+                <input asp-for="Password" class="form-control" placeholder="Mật Khẩu">
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="RemenberMe">&nbsp;</label>
+                <label class="form-check-label">
+                    <input type="checkbox" asp-for="RemenberMe"> Remember me
+                </label>
+            </div>
+            <a class="d-block py-2 small">Bạn quên mật khẩu?</a>
+
+            <button type="submit" class="btn btn-primary w-100">Đăng Nhập</button>
+            <div class="small text-muted py-2 text-center">Bạn chưa có tài khoản? <a asp-controller="Account" asp-action="Register">Đăng ký</a></div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+        </form>
+    </div>
+</div>
+
+
+@*<form enctype="multipart/form-data" method="post" asp-controller="Account" asp-action="Login">
+        <div class="row">
+            <div class="col-9">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="Email"></label>
+                            <input class="form-control" asp-for="Email">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="Password"></label>
+                            <input class="form-control" asp-for="Password">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <label asp-for="RemenberMe">&nbsp;</label>
+                            <label class="form-check-label">
+                                <input type="checkbox" asp-for="RemenberMe"> Remember me
+                            </label>
+
+                        </div>
+                    </div>
+                </div>
+
+                <a class="d-block py-2 small">Bạn quên mật khẩu?</a>
+                <button type="submit" class="btn btn-primary">
+                    Login
+                </button>
+                <a asp-controller="Employee" asp-action="Index" class="btn btn-danger">
+                    Back
+                </a>
+
+                <div asp-validation-summary="All" class="text-danger">
+
+                </div>
+                <div class="small text-muted py-2 ">
+                    Bạn chưa có tài khoản?
+                    <a asp-controller="Account" asp-action="Register">Đăng ký</a>
+                </div>
+            </div>
+
+        </div>
+    </form>*@
+

@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "RegisterViewModel";
+}
+
+@model RegisterViewModel
+
+<div class="col-md-4" style="margin: 0 auto">
+    <div class="users-form">
+        <h3 class="text-center">ĐĂNG KÝ</h3>
+        <form enctype="multipart/form-data" method="post" asp-controller="Account" asp-action="Register">
+            <div class="form-group">
+                <label asp-for="Email"></label>
+
+                <input asp-for="Email" class="form-control" placeholder="Tên đăng nhập">
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <!-- <label for="user_login">Tên login</label> -->
+                <!--USER-->
+            </div>
+
+            <div class="form-group">
+                <!-- <label for="user_pass">Mật khẩu</label> -->
+                <label asp-for="Password"></label>
+
+                <input asp-for="Password" class="form-control" placeholder="Mật Khẩu">
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+
+                <input asp-for="ConfirmPassword" class="form-control" placeholder="Nhập Lại Password">
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                <!-- <label for="user_login">Tên login</label> -->
+                <!--USER-->
+            </div>
+            <div class="form-group">
+                <label asp-for="City"></label>
+
+                <input asp-for="City" class="form-control" placeholder="City">
+
+                <!-- <label for="user_login">Tên login</label> -->
+                <!--USER-->
+            </div>
+            <div class="form-group">
+                <label asp-for="Address"></label>
+
+                <input asp-for="Address" class="form-control" placeholder="Address">
+
+                <!-- <label for="user_login">Tên login</label> -->
+                <!--USER-->
+            </div>
+            <button type="submit" class="btn btn-primary w-100">ĐĂNG KÝ</button>
+            <hr />
+            <a asp-controller="Employee" asp-action="Index" class="btn btn-danger w-100">CANCEL</a>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+        </form>
+    </div>
+</div>
+@*<form enctype="multipart/form-data" method="post" asp-controller="Account" asp-action="Register">
+          <div class="row">
+              <div class="col-9" style="margin: 0 auto">
+                  <div class="form-group">
+                      <div class="row">
+                          <div class="col-6">
+                              <label asp-for="Email"></label>
+                              <input class="form-control" asp-for="Email">
+                              <span asp-validation-for="Email" class="text-danger"></span>
+                          </div>
+
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="row">
+                          <div class="col-6">
+                              <label asp-for="Password"></label>
+                              <input class="form-control" asp-for="Password">
+                              <span asp-validation-for="Password" class="text-danger"></span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="row">
+                          <div class="col-6">
+                              <label asp-for="ConfirmPassword"></label>
+                              <input class="form-control" asp-for="ConfirmPassword">
+                              <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                          </div>
+                      </div>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">
+                      Register
+                  </button>
+                  <a asp-controller="Employee" asp-action="Index" class="btn btn-danger">
+                      Back
+                  </a>
+              </div>
+              <div asp-validation-summary="All" class="text-danger">
+
+              </div>
+          </div>
+    </form>*@
